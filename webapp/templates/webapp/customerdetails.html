@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div class="wrapper"> 
+<h1>Personal Information</h1>
+
+    <form class="form" method="post" > 
+    {% csrf_token %}
+        {{ form.errors }}
+        {{form|crispy}}
+        <button type="submit" class="finalSave">Book Now</button>
+
+    </div>
+
+
+    </form>
+</div>
+         
+
+<div class="personalinfo"><h2>
+
+                * You will receive an email from our customer service specialist (within the next 24hrs ), confirming your reservation
+                   
+                </h2>
+</div>
+                    
+
+    {% endblock %}

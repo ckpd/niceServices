@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load crispy_forms_tags %}
+{% load static %}
+<div class="container">
+<div class="wrapper"> 
+    <div class="callToAction"> 
+        <h2>Hello, are you Coming to the spiceisle and need to rent a car?</h2>
+        <a href="{% url 'webapp:CustomerOrder-add' %}" class="">Get Started Here</a>
+    </div>
+</div>
+       
+<div class="row customerarea">
+                        <h1>Our Services</h1>
+                        
+             <div class="col-sm-4 col-xs-6">
+      
+      	<div class="panel panel-default">
+          <div class="panel-thumbnail"><img src='../../static/img/keys.jpg' class="img-responsive"></div>
+          <div class="panel-body">
+            <p class="lead">Car Rental</p>
+            
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+          </div>
+        </div>
+          </div><!--/panel--> 
+                       <div class="col-sm-4 col-xs-6">
+      
+      	<div class="panel panel-default">
+          <div class="panel-thumbnail"><img src='../../static/img/CarCare.png' class="img-responsive"></div>
+          <div class="panel-body">
+            <p class="lead">Expert Car Care</p>
+            
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+          </div>
+        </div>
+          </div><!--/panel--> 
+                       <div class="col-sm-4 col-xs-6">
+      
+      	<div class="panel panel-default">
+          <div class="panel-thumbnail"><img src='../../static/img/keys.jpg' class="img-responsive"></div>
+          <div class="panel-body">
+            <p class="lead">Tinting by Barney</p>
+            
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+          </div>
+        </div>
+          </div><!--/panel--> 
+</div>  
+                   
+<div class="row customerarea">
+            <h1>See our current vehicles at a glance</h1>
+{% for order in vehicle_orders %}
+  <div class="col-sm-6 col-md-4 ">
+    <div class="Vehiclethumbnail">
+        <img src="{{order.logo.url}}" alt="{{order.logo}}">
+        <div class="arrow-down"></div>
+  <!-- Table -->
+  <table class="table">
+     <tr>
+        <td class="lead">Rate</td>
+        <td class="lead">US ${{order.CostPerDay}} Per Day</td>
+     </tr>
+      <tr>
+       <td>Vehicle Make: {{order.Make}}</td>
+       <td>Model: {{order.Model}}</td>
+   </tr>      <tr>
+       <td>Year: {{order.Year}}</td>
+       <td>Transmission: {{order.Transmission}}</td>
+   </tr>      <tr>
+       <td>A/C: {{order.Aircondition}}</td>
+       <td><a href="#" class="btn btn-default reserveNow" role="button">Reserve Now</a></td>
+   </tr>
+
+  </table>
+</div>
+
+
+  </div>
+            {% endfor %}
+
+</div>
+</div>
+
+       <br>
+       <br>
+       <br>
+       <br>
+<div class="container">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+      <h2>Nice Car Rentals Grenada</h2>
+      
+      <hr>
+      <h4>
+        Westerhall, St. Davids.
+      </h4>
+      <p>contact:1-473-440-1234</p>
+      <p>Email:info@niceservices.com</p>
+      <hr>
+      <ul class="list-inline center-block">
+        <li><a href="/"><img src="../../static/img/soc_fb.png"></a></li>
+        <li><a href="/"><img src="../../static/img/soc_in.png" style="width:50px"></a></li>
+      </ul>
+      
+  	</div><!--/col-->
+            
+</div>     
+
+            {% endblock %}

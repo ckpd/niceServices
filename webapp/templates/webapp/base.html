@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+        <title>Grenada Car</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0">
+        <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Open+Sans|Roboto:400,100,200,300" rel="stylesheet">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    
+    
+<nav class="navbar navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand Logo" src="../../static/img/bk.jpg"></a>
+        <p class="navbar-text" style="line-height:25px">Nice Car Services Grenada</p>
+    </div>
+        <ul class="nav navbar-nav pull-right">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Login</a></li> 
+      <li><a href="#">Register</a></li> 
+    </ul>
+  </div>
+</nav>
+
+<!--
+<nav class="navbar navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Nice Car Rentals</a>
+    </div>
+    <ul class="nav navbar-nav pull-right">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Login</a></li> 
+      <li><a href="#">Register</a></li> 
+    </ul>
+  </div>
+</nav>
+        
+-->
+    
+    <div class="backgroundholder"></div>
+        {% block body %}
+        {% endblock %}
+    </body>
+    
+    <footer>
+        <div class="container">
+    <p>All rights reserved <span>nice car services inc</span></p>
+  </div>
+        
+    </footer>
+</html>

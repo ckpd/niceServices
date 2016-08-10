@@ -1,0 +1,68 @@
+
+
+
+
+
+#
+#
+#
+#class IndexView(FormView):
+#    template_name = 'webapp/base.html'
+#    form_class = CustomerInfoForm
+#    success_url = '/addressinfo/'
+#
+#    def form_valid(self, form):
+#        # This method is called when valid form data has been POSTed.
+#        # It should return an HttpResponse.
+#        #form.save()
+#        #`print form
+#        return super(index, self).form_valid(form)
+#
+#    
+#    
+
+
+
+
+
+
+
+
+
+#
+#
+#class Carlist(ListView):
+#    queryset = Car.objects.filter(available=True)
+#    
+#class CarDetailView(DetailView):
+#    template_name = 'webapp/detail.html'
+#    model = Customer
+#    
+#class notAvail(ListView):
+#    template_name = 'webapp/notavailable.html'
+#    queryset = Car.objects.filter(available=False)
+#
+#def post_new(request):
+#    if request.method == "POST":
+#        form = availableForm(request.POST)
+#        if form.is_valid():
+#            post = form.save(commit=False)
+#            post.save()
+#    else:
+#        form = availableForm()
+#    return render(request, 'webapp/car_list.html', {'form': form})
+
+#
+#def post_edit(request, pk):
+#    post = get_object_or_404(Post, pk=pk)
+#    if request.method == "POST":
+#        form = PostForm(request.POST, instance=post)
+#        if form.is_valid():
+#            post = form.save(commit=False)
+#            post.author = request.user
+#            post.published_date = timezone.now()
+#            post.save()
+#            return redirect('post_detail', pk=post.pk)
+#    else:
+#        form = PostForm(instance=post)
+#    return render(request, 'blog/post_edit.html', {'form': form})

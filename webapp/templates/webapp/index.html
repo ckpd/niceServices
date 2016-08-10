@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load crispy_forms_tags %}
+
+<div class="wrapper"> 
+    <form class="form" method="post" > 
+    {% csrf_token %}
+ {{ form.errors }}
+        {{form|crispy}}
+        <button type="submit" class="finalSave">Continue Reservation</button>
+
+    </div>
+
+
+    </form>
+</div>
+                   
+<div class="row customerarea container">
+        <div class="arrow-down"></div>
+        <div class="arrow-down"></div>
+        <div class="arrow-down"></div>
+
+{% for order in vehicle_orders %}
+
+  <div class="col-sm-6 col-md-4 ">
+    <div class="Vehiclethumbnail">
+        <img src="../../static/img/jeep.png">
+        <div class="arrow-down"></div>
+
+  <!-- Table -->
+  <table class="table">
+     <tr>
+        <td>Rate</td>
+        <td>US ${{order.Make}} Per Day</td>
+     </tr>
+      <tr>
+       <td>Vehicle Make: {{order.Make}}</td>
+       <td>Vehicle Model: {{order.Model}}</td>
+   </tr>      <tr>
+       <td>Vehicle Year: {{order.Year}}</td>
+       <td>Transmission: {{order.Make}}</td>
+   </tr>      <tr>
+       <td>A/C: {{order.}}</td>
+       <td>Vehicle Model: {{order.}}</td>
+   </tr>
+  </table>
+</div>
+
+
+  </div>
+            {% endfor %}
+
+</div>
+
+
+            {% endblock %}
+

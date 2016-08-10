@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="car_list">
+  <div class="heading">
+   <h1>Vehicles Rented</h1>
+  {% if notavailable %}
+    <h1 class="objectlist pull-right">  {{ available|length }}</h1>  
+{% endif %} 
+     </div>
+ 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>make</th>
+        <th>model</th>
+        <th>year</th>
+        <th>Category</th>
+        <th>Air Conditoner</th>
+        <th>Is Available</th>
+        <th>Cus. First Name</th>
+        <th>Cus. Last Name</th>
+        <th>Until Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for Car in available %}
+
+        <tr > 
+
+            <td>
+                {{ Car.VehicleOrder.Make }}</td>
+            <td>{{ Car.VehicleOrder.Model }}</td>
+            <td>{{ Car.VehicleOrder.Year }}</td>
+            <td>{{ Car.VehicleOrder.Category }}</td>
+            <td>{{ Car.VehicleOrder.Aircondition }}</td>
+            <td class="{{Car.is_Available}}">No</td>
+            <td>{{ Car.CustomerOrder.First_Name }}</td> <!-- to tell who the customer is -->
+            <td>{{ Car.CustomerOrder.Last_Name }}</td> <!-- to tell who the customer is -->
+            <td>{{ Car.CustomerOrder.Drop_Off_Date }}</td> <!-- to tell how long a customer has -->
+
+        </tr>
+{% endfor %}
+</table>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="heading">
+   <h1>Vehicles Available For Rent</h1>
+  {% if notavailable %}
+    <h1 class="objectlist pull-right">  {{ notavailable|length }}</h1>  
+    {% else %}
+    <h1 class="objectlist pull-right">  0 </h1>  
+
+{% endif %} 
+     </div>
+ 
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>make</th>
+        <th>model</th>
+        <th>year</th>
+        <th>Catergory</th>
+        <th>Air Conditoner</th>
+        <th>Is Available</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for Car in notavailable %}
+
+        <tr > 
+
+            <td>
+                {{ Car.VehicleOrder.Make }}</td>
+            <td>{{ Car.VehicleOrder.Model }}</td>
+            <td>{{ Car.VehicleOrder.Year }}</td>
+            <td>{{ Car.VehicleOrder.Make }}</td>
+            <td>{{ Car.VehicleOrder.Aircondition }}</td>
+            <td class="{{Car.is_Available}}">Yes</td>
+
+        </tr>
+{% endfor %}
+</table>
+
+</div>
+
+
+{% endblock %}
+
+    

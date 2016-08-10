@@ -1,0 +1,128 @@
+       {{ form.non_field_errors }}
+  <div class="error">  {{ form.errors }} </div>
+   <div class="fieldWrapper">
+<!--    <label for="{{ form.Vehicle.id_for_label }}">Choose A Vehicle:</label>-->
+    {{ form.Vehicle }}
+</div>
+<div class="fieldWrapper">
+<!--    <label for="{{ form.Pick_Up.id_for_label }}">Pick Up Location:</label>-->
+    {{ form.Pick_Up }}
+</div>
+<div class="fieldWrapper">
+<!--    <label for="{{ form.Drop_Off.id_for_label }}">Drop Off Location:</label>-->
+    {{ form.Drop_Off }}
+</div>
+<div class="fieldWrapper">
+<!--    <label for="{{ form.Pick_Up_Date.id_for_label }}">Pick Up Date:</label>-->
+    {{ form.Pick_Up_Date }}
+</div>
+<div class="fieldWrapper">
+<!--    <label for="{{ form.Drop_Off_Date.id_for_label }}">Drop Off Date</label>-->
+    {{ form.Drop_Off_Date }}
+</div>
+     <div class="fieldWrapper">
+
+    <input type="submit" value="Continue Reservation" class="save">
+
+</div>
+       
+
+
+Available
+-->        {% for VehicleOrder in object_list %}
+                <ul class="nav">
+                      <li class="active"><a data-toggle="tab" href="#home">{{ VehicleOrder.Make }}</a></li>
+<!--                      <li><a data-toggle="tab" href="#menu1">{{ VehicleOrder.Make }}</a></li>-->
+                </ul>
+                    <div class="tab-content">
+                      <div id="home" class="tab-pane fade in active">
+                       
+                        <img src="http://placehold.it/500x500" alt="">
+                        <ul>
+                                <li><h1>$100.40 rent per day</h1></li>
+                                <li>Model	Limousine</li>
+                                <li>Doors	4</li>
+                                <li>Seats	5</li>
+                                <li>Air conditioning Yes</li>
+                                <li>Seats	5</li>
+                                <li><h1>Reserve Now</h1></li>
+
+                          </ul> 
+                        
+                      </div>
+                      <div id="menu1" class="tab-pane fade">
+                        <h3>Menu 1</h3>
+                        <p>Some content in menu 1.</p>
+                      </div>
+                    </div>
+                            {% endfor %}
+
+                </div>
+        </div>
+        
+        <footer>
+           <h1>island Code</h1>
+           <h2>Tempe Heights</h2>
+           <h2>St Geo</h2>
+           <h2>grenada </h2>
+            
+        </footer>
+<!--
+        {% block content %}
+        {% endblock %}
+-->
+
+     <script>
+        
+        // Select all tabs
+        $('.nav-tabs a').click(function(){
+            $(this).tab('show');
+        })
+
+        // Select tab by name
+        $('.nav-tabs a[href="#home"]').tab('show')
+
+        // Select first tab
+        $('.nav-tabs a:first').tab('show') 
+
+        // Select last tab
+        $('.nav-tabs a:last').tab('show') 
+
+        // Select fourth tab (zero-based)
+        $('.nav-tabs li:eq(3) a').tab('show')
+        
+        </script>   
+        
+        
+        
+        
+        {% extends 'webapp/base.html' %}
+{% block body %}
+{% load crispy_forms_tags %}
+
+<div class="wrapper"> 
+    <form class="form-inline" method="post" > 
+    {% csrf_token %}
+        {{ form.errors }}
+        {% for field in form %}
+    <div class="form-group">
+    <label for="exampleInputName2" for="{{ form.Drop_Off.id_for_label }}">
+       {{ field.label_tag }}
+    </label>
+
+       <br>
+        {{ field }}           
+    </div>
+        {% endfor %}
+        <button type="submit" class="finalSave">Continue Reservation</button>
+
+    </div>
+
+
+    </form>
+</div>
+
+
+
+            {% endblock %}
+
